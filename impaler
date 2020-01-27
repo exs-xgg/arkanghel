@@ -1,0 +1,28 @@
+#!/bin/bash
+
+
+#lets do somepre-flight checks
+
+php spear.php
+
+if [ 0 == `cat .blood` ]
+then
+    echo "";
+    sh yeet
+else
+    echo "wow meron";
+fi
+
+#CHECK IF USER IS RUNNING ROOT
+#FORCE USER TO RUN ROOT
+
+echo '################################'
+echo ''
+echo '     WAH AUTOUPDATE SYSTEM'
+echo ''
+echo '********************************'
+echo '  Please enter server password.'
+echo ' If you do not know the server'
+echo ' password, please call WAH Office'
+echo '********************************'
+sudo sh wahupdate
