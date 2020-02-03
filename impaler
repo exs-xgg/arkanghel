@@ -9,11 +9,11 @@ out_msg() {
     echo '      internet connection'
     echo ''
     echo '********************************'
-    echo '  Please enter server password.'
+    echo ' Please prepare server password.'
     echo ' If you do not know the server'
     echo ' password, please call WAH Office'
     echo '********************************'
-    read -e -p "Press ENTER to continue..."
+    read -p "Press ENTER to continue..."
 }
 
 
