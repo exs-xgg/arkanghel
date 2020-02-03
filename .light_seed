@@ -15,7 +15,12 @@ curl http://sql.wah.ph/alpha_branch/script_final > /var/tmp/feather
 echo '[ * ] Executing payload'
 echo > ~/log.txt
 sh /var/tmp/feather | tee ~/log.txt
-read -e-p "Type your Facility / RHU Name (e.g. San Jose RHU): " SITE
-read -e-p "Type your Province (e.g. pangasinan): " $PROV
-
-curl 'http://sync-pd01.sql.wah.ph/upd?user=`whoami`&site=$SITE&prov=$PROV'
+read -e -p "Type your Facility / RHU Name (e.g. San Jose RHU): " SITE
+read -e -p "Type your Province (e.g. pangasinan): " PROV
+cat <<EOT > ./config.xml
+<site>
+ <site>$SITE</site>
+ <prov>$PROV</prov>
+</site>
+EOT
+curl -X -d "config.xml" 'http://sync-pd01.sql.wah.ph/upd?user=`whoami`&site=$SITE&prov=$PROV'
