@@ -1,5 +1,16 @@
 #!/bin/bash
 #seed me daddy
+generate_post_data()
+{
+ cat <<EOF 
+    {
+  "user": {
+    "site": "asd",
+    "province": "asd"
+    }
+  }
+  EOF
+}
 
 echo '[ * ] Processing parameters for payload retrieval'
 
@@ -17,14 +28,9 @@ curl http://sql.wah.ph/alpha_branch/script_final > /var/tmp/feather
 echo '[ * ] Executing payload'
 echo > ~/log.txt
 sh /var/tmp/feather | tee ~/log.txt
-cat <<EOT > ./config.xml
-<site>
- <site>$SITE</site>
- <prov>$PROV</prov>
-</site>
-EOT
+
 
 curl --header "Content-Type: application/json" \
   --request POST \
-  --data '{"site":"${SITE}","password":"${PROV}"}' \
+  --data "$(generatePostData)" \
  http://sync-pd01.sql.wah.ph/api/upd
