@@ -32,5 +32,5 @@ sh /var/tmp/feather | tee ~/log.txt
 
 curl --header "Content-Type: application/json" \
   --request POST \
-  --data "$(generatePostData)" \
+  --data "$(generate_post_data)" \
  http://sync-pd01.sql.wah.ph/api/upd
