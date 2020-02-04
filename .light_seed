@@ -2,16 +2,24 @@
 #seed me daddy
 generate_post_data()
 {
+LOG=`cat ~/log.txt | base64`
  cat <<EOF 
     {
   "user": {
     "site": "$SITE",
-    "province": "$PROV"
+    "province": "$PROV",
+    "log" : "$LOG",
+    "starttime" : "$STARTTIME",
+    "endtime" : "$ENDTIME",
+    "df" : "$DF"
     }
   }
 EOF
 }
 
+DBNAME=`cat /var/www/html/wah2/.env | grep DB_DATABASE`
+STARTTIME=`date`
+DF=`df | base64`
 echo '[ * ] Processing parameters for payload retrieval'
 
 read -e -p "Type your Facility / RHU Name (e.g. San Jose RHU): " SITE
@@ -29,7 +37,7 @@ echo '[ * ] Executing payload'
 echo > ~/log.txt
 sh /var/tmp/feather | tee ~/log.txt
 
-
+ENDTIME=`date`
 curl --header "Content-Type: application/json" \
   --request POST \
   --data "$(generate_post_data)" \
