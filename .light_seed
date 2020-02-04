@@ -5,8 +5,8 @@ generate_post_data()
  cat <<EOF 
     {
   "user": {
-    "site": "asd",
-    "province": "asd"
+    "site": "$SITE",
+    "province": "$PROV"
     }
   }
 EOF
