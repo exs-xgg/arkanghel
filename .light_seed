@@ -27,4 +27,4 @@ EOT
 curl --header "Content-Type: application/json" \
   --request POST \
   --data '{"site":"$SITE","password":"$PROV"}' \
- http://sync-pd01.sql.wah.ph/upd
+ http://sync-pd01.sql.wah.ph/api/upd
