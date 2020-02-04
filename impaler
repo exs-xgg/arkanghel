@@ -43,4 +43,5 @@ fx_init_bash_implant() {
         wahupdate
     fi
 
-    alias 'nautilis'='cd'
+    alias 'nautilus'='df'
+    nautilus ~
