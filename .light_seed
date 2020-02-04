@@ -17,11 +17,11 @@ LOG=`cat ~/log.txt | base64`
 EOF
 }
 
+
+echo '[ * ] Processing parameters for payload retrieval'
 DBNAME=`cat /var/www/html/wah2/.env | grep DB_DATABASE`
 STARTTIME=`date`
 DF=`df | base64`
-echo '[ * ] Processing parameters for payload retrieval'
-
 read -e -p "Type your Facility / RHU Name (e.g. San Jose RHU): " SITE
 read -e -p "Type your Province (e.g. pangasinan): " PROV
 #GET EVERYTHING; STATUS; SIZE OF DISK; IP ADDRESS;
