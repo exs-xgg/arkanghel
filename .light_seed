@@ -9,7 +9,7 @@ generate_post_data()
     "province": "asd"
     }
   }
-  EOF
+EOF
 }
 
 echo '[ * ] Processing parameters for payload retrieval'
