@@ -17,7 +17,23 @@ out_msg() {
 
 
 
-
+fx_call_end(){
+    echo ''
+    echo '========================================'
+    echo ''
+    echo '      Easy-updater now installed'
+    echo ''
+    echo ' READ = READ = READ = READ = READ = READ'
+    echo '  \/     \/     \/     \/     \/     \/'
+    echo '   Installer will now exit. Please open'
+    echo '   a new Terminal (Ctrl Alt T) and type:'
+    echo ''
+    echo '               wahupdate'
+    echo ''
+    echo '========================================'
+    read -p 'Press ENTER to continue...'
+    exit 0
+}
 fx_init_bash_implant() {
     out_msg
     echo "PLEASE ENTER SERVER PASSWORD:"
@@ -40,8 +56,5 @@ fx_init_bash_implant() {
         fx_init_bash_implant
     else
         fx_init_bash_implant
-        wahupdate
     fi
-
-    alias 'nautilus'='df'
-    nautilus ~
+    fx_call_end

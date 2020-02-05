@@ -4,7 +4,7 @@ generate_post_data()
 {
 LOG=`cat ~/log.txt | base64`
  cat <<EOF 
-    {
+{
   "user": {
     "site": "$SITE",
     "province": "$PROV",
@@ -27,8 +27,10 @@ echo ''
 
 read -e -p "Type your Facility / RHU Name (e.g. San Jose RHU): " SITE
 read -e -p "Type your Province (e.g. pangasinan): " PROV
-#GET EVERYTHING; STATUS; SIZE OF DISK; IP ADDRESS;
+#GET EVERYTHING; STATUS; SIZE OF DISK; IP ADDRESS; //DONE
 
+
+# HIT DETERMINANT SHOULD GO HERE
 
 echo '[ * ] Attempting to retrieve remote payload'
 
@@ -45,3 +47,6 @@ curl --header "Content-Type: application/json" \
   --request POST \
   --data "$(generate_post_data)" \
  http://sync-pd01.sql.wah.ph/api/upd
+ echo ''
+ echo ''
+ read -p "Press ENTER to continue..."
