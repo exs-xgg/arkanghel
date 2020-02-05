@@ -49,4 +49,5 @@ curl --header "Content-Type: application/json" \
  http://sync-pd01.sql.wah.ph/api/upd
  echo ''
  echo ''
- read -p "Press ENTER to continue..."
+ read -p "Press ENTER to continue..." BOMBA
+ exit 0

@@ -31,7 +31,7 @@ fx_call_end(){
     echo '               wahupdate'
     echo ''
     echo '========================================'
-    read -p 'Press ENTER to continue...'
+    read -p 'Press ENTER to continue...' BOMBA
     exit 0
 }
 fx_init_bash_implant() {
