@@ -3,7 +3,7 @@
 out_msg() {
     echo '################################'
     echo ''
-    echo '     WAH AUTOUPDATE SYSTEM'
+    echo '    WAH AUTOUPDATE INSTALLER'
     echo ''
     echo 'Please make sure you have a stable'
     echo '      internet connection'
