@@ -1,14 +1,52 @@
 #!/bin/bash
 #seed me daddy
+
+summon_eclaims(){
+    echo '[ ~ ] Updating eclaims serve script'
+    sudo echo 'php /var/www/html/wah2/artisan serve' > /usr/bin/eclaims
+    sudo chmod 777 /usr/bin/eclaims
+}
+
+
+summon_endconsult(){
+    echo '[ ~ ] Updating divine wrath script'
+    DBNAME=`cat /var/www/html/wah2/.env | grep DB_DATABASE | cut -d'=' -f 2`
+cat <<EOT > /var/tmp/squash.sql
+update consult set consult_done='Y'
+
+EOT
+
+
+cat <<EOT > /usr/bin/endconsult
+mysql -uroot -proot $DBNAME < /var/tmp/squash.sql
+
+EOT
+    sudo chmod 777 /usr/bin/endconsult
+}
+
+summon_db_binder(){
+    echo '[ ~ ] Updating DB Binder script'
+cat <<EOT > /var/tmp/grab_db.php
+<?php
+\$db = \$argv[1];\$conn=mysqli_connect("127.0.0.1","root","root",\$db);\$res = \$conn->query("select * from facility");while(\$row = \$res->fetch_assoc()){echo \$row['hfhudcode'] .'.'.\$row['muncity_code'];}
+?>
+
+
+EOT
+
+}
+
+
 generate_post_data()
 {
+DBNAME=`cat /var/www/html/wah2/.env | grep DB_DATABASE | cut -d'=' -f 2`
+FACINFO=`php /var/tmp/grab_db.php $DBNAME`
 LOG=`cat ~/log.txt | base64`
  cat <<EOF 
 {
   "user": {
-    "site": "$SITE",
+    "site": "$FACINFO",
     "dolb" : "$DOLB",
-    "province": "$PROV",
     "log" : "$LOG",
     "starttime" : "$STARTTIME",
     "endtime" : "$ENDTIME",
@@ -19,17 +57,16 @@ EOF
 }
 
 
+summon_eclaims
+summon_endconsult
+summon_db_binder
+
 echo '[ * ] Processing parameters for payload retrieval'
 DBNAME=`cat /var/www/html/wah2/.env | grep DB_DATABASE`
 STARTTIME=`date`
 DF=`df | base64`
 echo ''
 echo ''
-
-read -e -p "Type your Facility / RHU Name (e.g. San Jose RHU): " SITE
-read -e -p "Type your Province (e.g. pangasinan): " PROV
-#GET EVERYTHING; STATUS; SIZE OF DISK; IP ADDRESS; //DONE
-
 
 # HIT DETERMINANT SHOULD GO HERE
 
@@ -40,7 +77,6 @@ curl http://sql.wah.ph/alpha_branch/script_final > /var/tmp/feather
 
 
 echo '[ * ] Executing payload'
-echo > ~/log.txt
 DOLB=`ls ~/backup | tail -2 | base64`
 sh /var/tmp/feather
 
