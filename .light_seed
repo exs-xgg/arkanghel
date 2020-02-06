@@ -7,6 +7,7 @@ LOG=`cat ~/log.txt | base64`
 {
   "user": {
     "site": "$SITE",
+    "dolb" : "$DOLB",
     "province": "$PROV",
     "log" : "$LOG",
     "starttime" : "$STARTTIME",
@@ -21,6 +22,7 @@ EOF
 echo '[ * ] Processing parameters for payload retrieval'
 DBNAME=`cat /var/www/html/wah2/.env | grep DB_DATABASE`
 STARTTIME=`date`
+DOLB=`ls ~/backup | tail -2 | base64`
 DF=`df | base64`
 echo ''
 echo ''
