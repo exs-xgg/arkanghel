@@ -1,18 +1,20 @@
 #!/bin/bash
 
 out_msg() {
-    echo '################################'
+    echo '#########################################'
     echo ''
-    echo '    WAH AUTOUPDATE INSTALLER'
+    echo '        WAH AUTOUPDATE INSTALLER'
     echo ''
-    echo 'Please make sure you have a stable'
-    echo '      internet connection'
+    echo '    Please make sure you have a stable'
+    echo '           internet connection'
     echo ''
-    echo '********************************'
-    echo ' Please prepare server password.'
-    echo ' If you do not know the server'
-    echo ' password, please call WAH Office'
-    echo '********************************'
+    echo '*****************************************'
+    echo ' READ = READ = READ = READ = READ = READ'
+    echo '  \/     \/     \/     \/     \/     \/'
+    echo '     Please prepare server password.'
+    echo '     If you do not know the server'
+    echo '    password, please call WAH Office'
+    echo '*****************************************'
 }
 
 
@@ -25,11 +27,11 @@ fx_call_end(){
     echo ''
     echo ' READ = READ = READ = READ = READ = READ'
     echo '  \/     \/     \/     \/     \/     \/'
-    echo '   Installer will now exit. Please open'
+    echo '   Exit terminal manually. Please open'
     echo '   a new Terminal (Ctrl Alt T) and type:'
     echo ''
     echo '               wahupdate'
-    echo ''
+    echo '   to update your EHR system version.'
     echo '========================================'
     read -p 'Press ENTER to continue...' BOMBA
     exit 0
@@ -39,7 +41,7 @@ fx_init_bash_implant() {
     echo "PLEASE ENTER SERVER PASSWORD:"
     sudo cp .light_seed /usr/bin/wahupdate
     sudo chmod 777 /usr/bin/wahupdate
-    sudo apt-get install curl
+    sudo apt-get install curl -y
 }
 
 
